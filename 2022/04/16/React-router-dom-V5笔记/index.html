@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>React-router-dom-V5笔记 | XBX Blog</title><meta name="keywords" content="博客 Blog"><meta name="author" content="Xu Jie"><meta name="copyright" content="Xu Jie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="三、路由的基本使用        1.明确好界面中的导航区、展示区         2.导航区的a标签改为Link标签                     &lt;Link to&#x3D;&quot;&#x2F;xxxxx&quot;&gt;Demo&lt;&#x2F;Link&gt;         3.展示区写Route标签进行路径的匹配                     &lt;Route path&#x3D;&amp;#39">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-router-dom-V5笔记">
+<meta property="og:url" content="https://greenhand-xj.github.io/2022/04/16/React-router-dom-V5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="XBX Blog">
+<meta property="og:description" content="三、路由的基本使用        1.明确好界面中的导航区、展示区         2.导航区的a标签改为Link标签                     &lt;Link to&#x3D;&quot;&#x2F;xxxxx&quot;&gt;Demo&lt;&#x2F;Link&gt;         3.展示区写Route标签进行路径的匹配                     &lt;Route path&#x3D;&amp;#39">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://greenhand-xj.github.io/img/home-banner.png">
+<meta property="article:published_time" content="2022-04-16T03:41:54.000Z">
+<meta property="article:modified_time" content="2022-04-16T15:36:18.783Z">
+<meta property="article:author" content="Xu Jie">
+<meta property="article:tag" content="博客 Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://greenhand-xj.github.io/img/home-banner.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://greenhand-xj.github.io/2022/04/16/React-router-dom-V5%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Xu Jie","link":"链接: ","source":"来源: XBX Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'React-router-dom-V5笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-16 23:36:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/home-banner.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">XBX Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">React-router-dom-V5笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-16T03:41:54.000Z" title="发表于 2022-04-16 11:41:54">2022-04-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-16T15:36:18.783Z" title="更新于 2022-04-16 23:36:18">2022-04-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="React-router-dom-V5笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="三、路由的基本使用"><a href="#三、路由的基本使用" class="headerlink" title="三、路由的基本使用"></a>三、路由的基本使用</h2><pre><code>        1.明确好界面中的导航区、展示区
+        2.导航区的a标签改为Link标签
+                    &lt;Link to=&quot;/xxxxx&quot;&gt;Demo&lt;/Link&gt;
+        3.展示区写Route标签进行路径的匹配
+                    &lt;Route path=&#39;/xxxx&#39; component=&#123;Demo&#125;/&gt;
+        4.&lt;App&gt;的最外侧包裹了一个&lt;BrowserRouter&gt;或&lt;HashRouter&gt;
+</code></pre>
+<h2 id="四、路由组件与一般组件"><a href="#四、路由组件与一般组件" class="headerlink" title="四、路由组件与一般组件"></a>四、路由组件与一般组件</h2><pre><code>        1.写法不同：
+                    一般组件：&lt;Demo/&gt;
+                    路由组件：&lt;Route path=&quot;/demo&quot; component=&#123;Demo&#125;/&gt;
+        2.存放位置不同：
+                    一般组件：components
+                    路由组件：pages
+        3.接收到的props不同：
+                    一般组件：写组件标签时传递了什么，就能收到什么
+                    路由组件：接收到三个固定的属性
+                                        history:
+                                                    go: ƒ go(n)
+                                                    goBack: ƒ goBack()
+                                                    goForward: ƒ goForward()
+                                                    push: ƒ push(path, state)
+                                                    replace: ƒ replace(path, state)
+                                        location:
+                                                    pathname: &quot;/about&quot;
+                                                    search: &quot;&quot;
+                                                    state: undefined
+                                        match:
+                                                    params: &#123;&#125;
+                                                    path: &quot;/about&quot;
+                                                    url: &quot;/about&quot;
+</code></pre>
+<h2 id="五、NavLink-与封装-NavLink"><a href="#五、NavLink-与封装-NavLink" class="headerlink" title="五、NavLink 与封装 NavLink"></a>五、NavLink 与封装 NavLink</h2><pre><code>            1.NavLink可以实现路由链接的高亮，通过activeClassName指定样式名
+</code></pre>
+<h2 id="六、Switch-的使用"><a href="#六、Switch-的使用" class="headerlink" title="六、Switch 的使用"></a>六、Switch 的使用</h2><pre><code>            1.通常情况下，path和component是一一对应的关系。
+            2.Switch可以提高路由匹配效率(单一匹配)。
+</code></pre>
+<h2 id="七、解决多级路径刷新页面样式丢失的问题"><a href="#七、解决多级路径刷新页面样式丢失的问题" class="headerlink" title="七、解决多级路径刷新页面样式丢失的问题"></a>七、解决多级路径刷新页面样式丢失的问题</h2><pre><code>            1.public/index.html 中 引入样式时不写 ./ 写 / （常用）
+            2.public/index.html 中 引入样式时不写 ./ 写 %PUBLIC_URL% （常用）
+            3.使用HashRouter
+</code></pre>
+<h2 id="八、路由的严格匹配与模糊匹配"><a href="#八、路由的严格匹配与模糊匹配" class="headerlink" title="八、路由的严格匹配与模糊匹配"></a>八、路由的严格匹配与模糊匹配</h2><pre><code>            1.默认使用的是模糊匹配（简单记：【输入的路径】必须包含要【匹配的路径】，且顺序要一致）
+            2.开启严格匹配：&lt;Route exact=&#123;true&#125; path=&quot;/about&quot; component=&#123;About&#125;/&gt;
+            3.严格匹配不要随便开启，需要再开，有些时候开启会导致无法继续匹配二级路由
+</code></pre>
+<h2 id="九、Redirect-的使用"><a href="#九、Redirect-的使用" class="headerlink" title="九、Redirect 的使用"></a>九、Redirect 的使用</h2><pre><code>            1.一般写在所有路由注册的最下方，当所有路由都无法匹配时，跳转到Redirect指定的路由
+            2.具体编码：
+                    &lt;Switch&gt;
+                        &lt;Route path=&quot;/about&quot; component=&#123;About&#125;/&gt;
+                        &lt;Route path=&quot;/home&quot; component=&#123;Home&#125;/&gt;
+                        &lt;Redirect to=&quot;/about&quot;/&gt;
+                    &lt;/Switch&gt;
+</code></pre>
+<h2 id="十、嵌套路由"><a href="#十、嵌套路由" class="headerlink" title="十、嵌套路由"></a>十、嵌套路由</h2><pre><code>            1.注册子路由时要写上父路由的path值
+            2.路由的匹配是按照注册路由的顺序进行的
+</code></pre>
+<h2 id="十一、向路由组件传递参数"><a href="#十一、向路由组件传递参数" class="headerlink" title="十一、向路由组件传递参数"></a>十一、向路由组件传递参数</h2><pre><code>            1.params参数
+                        路由链接(携带参数)：&lt;Link to=&#39;/demo/test/tom/18&#39;&#125;&gt;详情&lt;/Link&gt;
+                        注册路由(声明接收)：&lt;Route path=&quot;/demo/test/:name/:age&quot; component=&#123;Test&#125;/&gt;
+                        接收参数：this.props.match.params
+            2.search参数
+                        路由链接(携带参数)：&lt;Link to=&#39;/demo/test?name=tom&amp;age=18&#39;&#125;&gt;详情&lt;/Link&gt;
+                        注册路由(无需声明，正常注册即可)：&lt;Route path=&quot;/demo/test&quot; component=&#123;Test&#125;/&gt;
+                        接收参数：this.props.location.search
+                        备注：获取到的search是urlencoded编码字符串，需要借助querystring解析
+            3.state参数
+                        路由链接(携带参数)：&lt;Link to=&#123;&#123;pathname:'/demo/test',state:&#123;name:'tom',age:18&#125;&#125;&#125;&gt;详情&lt;/Link&gt;
+                        注册路由(无需声明，正常注册即可)：&lt;Route path=&quot;/demo/test&quot; component=&#123;Test&#125;/&gt;
+                        接收参数：this.props.location.state
+                        备注：刷新也可以保留住参数
+</code></pre>
+<h2 id="十二、编程式路由导航"><a href="#十二、编程式路由导航" class="headerlink" title="十二、编程式路由导航"></a>十二、编程式路由导航</h2><h2 id="十二、编程式路由导航-1"><a href="#十二、编程式路由导航-1" class="headerlink" title="十二、编程式路由导航"></a>十二、编程式路由导航</h2><pre><code>                借助this.prosp.history对象上的API对操作路由跳转、前进、后退
+                        -this.prosp.history.push()
+                        -this.prosp.history.replace()`
+                        -this.prosp.history.goBack()
+                        -this.prosp.history.goForward()
+                        -this.prosp.history.go()
+</code></pre>
+<h2 id="十三、BrowserRouter-与-HashRouter-的区别"><a href="#十三、BrowserRouter-与-HashRouter-的区别" class="headerlink" title="十三、BrowserRouter 与 HashRouter 的区别"></a>十三、BrowserRouter 与 HashRouter 的区别</h2><pre><code>        1.底层原理不一样：
+                    BrowserRouter使用的是H5的history API，不兼容IE9及以下版本。
+                    HashRouter使用的是URL的哈希值。
+        2.path表现形式不一样
+                    BrowserRouter的路径中没有#,例如：localhost:3000/demo/test
+                    HashRouter的路径包含#,例如：localhost:3000/#/demo/test
+        3.刷新后对路由state参数的影响
+                    (1).BrowserRouter没有任何影响，因为state保存在history对象中。
+                    (2).HashRouter刷新后会导致路由state参数的丢失！！！
+        4.备注：HashRouter可以用于解决一些路径错误相关的问题。
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">天禹老师</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://greenhand-xj.github.io/2022/04/16/React-router-dom-V5%E7%AC%94%E8%AE%B0/">https://greenhand-xj.github.io/2022/04/16/React-router-dom-V5%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://greenhand-xj.github.io" target="_blank">XBX Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/./img/home-banner.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/16/tsx%E5%B0%81%E8%A3%85EP%E6%97%A0%E9%99%90%E8%8F%9C%E5%8D%95%E7%BB%84%E4%BB%B6/"><img class="prev-cover" src="/./img/home-banner.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">tsx封装EP无限菜单组件</div></div></a></div><div class="next-post pull-right"><a href="/2022/04/15/attrs%E5%B1%9E%E6%80%A7%E7%9A%84%E5%A6%99%E7%94%A8/"><img class="next-cover" src="/./img/default-top.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">attrs属性的妙用</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NjE3Ni8zMjYzOQ=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xu Jie</div><div class="author-info__description">欢迎来到我的博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/greenhand-xj"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/greenhand-xj" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2275817182@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://gitee.com/wode_shijie" target="_blank" title="Gitee"><i class="fa-brands fa-git-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">三、路由的基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%E4%B8%8E%E4%B8%80%E8%88%AC%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">四、路由组件与一般组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81NavLink-%E4%B8%8E%E5%B0%81%E8%A3%85-NavLink"><span class="toc-number">3.</span> <span class="toc-text">五、NavLink 与封装 NavLink</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81Switch-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">六、Switch 的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%A7%A3%E5%86%B3%E5%A4%9A%E7%BA%A7%E8%B7%AF%E5%BE%84%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">七、解决多级路径刷新页面样式丢失的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%8C%B9%E9%85%8D%E4%B8%8E%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D"><span class="toc-number">6.</span> <span class="toc-text">八、路由的严格匹配与模糊匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81Redirect-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text">九、Redirect 的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1"><span class="toc-number">8.</span> <span class="toc-text">十、嵌套路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%90%91%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-number">9.</span> <span class="toc-text">十一、向路由组件传递参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA"><span class="toc-number">10.</span> <span class="toc-text">十二、编程式路由导航</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA-1"><span class="toc-number">11.</span> <span class="toc-text">十二、编程式路由导航</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81BrowserRouter-%E4%B8%8E-HashRouter-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">12.</span> <span class="toc-text">十三、BrowserRouter 与 HashRouter 的区别</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/27/js%E4%B8%93%E9%A1%B9/" title="js专项"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="js专项"/></a><div class="content"><a class="title" href="/2022/04/27/js%E4%B8%93%E9%A1%B9/" title="js专项">js专项</a><time datetime="2022-04-27T14:09:40.000Z" title="发表于 2022-04-27 22:09:40">2022-04-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8wangeditor%E5%AF%8C%E6%96%87%E6%9C%AC/" title="简单使用wangeditor富文本"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="简单使用wangeditor富文本"/></a><div class="content"><a class="title" href="/2022/04/24/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8wangeditor%E5%AF%8C%E6%96%87%E6%9C%AC/" title="简单使用wangeditor富文本">简单使用wangeditor富文本</a><time datetime="2022-04-24T14:51:27.000Z" title="发表于 2022-04-24 22:51:27">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/23/mobx-v6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="mobx-v6的基本使用(React版)"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mobx-v6的基本使用(React版)"/></a><div class="content"><a class="title" href="/2022/04/23/mobx-v6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="mobx-v6的基本使用(React版)">mobx-v6的基本使用(React版)</a><time datetime="2022-04-23T15:02:26.000Z" title="发表于 2022-04-23 23:02:26">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/23/react-router-dom-v6/" title="react-router-dom-v6"><img src="/./img/default-top.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="react-router-dom-v6"/></a><div class="content"><a class="title" href="/2022/04/23/react-router-dom-v6/" title="react-router-dom-v6">react-router-dom-v6</a><time datetime="2022-04-23T02:53:23.000Z" title="发表于 2022-04-23 10:53:23">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/20/redux%E5%9C%A8react%E4%B8%AD%E4%BD%BF%E7%94%A8/" title="redux在react中使用"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redux在react中使用"/></a><div class="content"><a class="title" href="/2022/04/20/redux%E5%9C%A8react%E4%B8%AD%E4%BD%BF%E7%94%A8/" title="redux在react中使用">redux在react中使用</a><time datetime="2022-04-20T14:57:03.000Z" title="发表于 2022-04-20 22:57:03">2022-04-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Xu Jie</div><div class="footer_custom_text">很高兴认识你🤣</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (true) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

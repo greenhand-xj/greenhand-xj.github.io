@@ -1,199 +1,369 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>XBX Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎来到我的博客">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>XBX Blog - 小白徐</title><meta name="keywords" content="博客 Blog"><meta name="author" content="Xu Jie"><meta name="copyright" content="Xu Jie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="欢迎来到我的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="XBX Blog">
 <meta property="og:url" content="https://greenhand-xj.github.io/index.html">
 <meta property="og:site_name" content="XBX Blog">
 <meta property="og:description" content="欢迎来到我的博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://greenhand-xj.github.io/img/avatar.png">
 <meta property="article:author" content="Xu Jie">
 <meta property="article:tag" content="博客 Blog">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="XBX Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://greenhand-xj.github.io/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://greenhand-xj.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Xu Jie","link":"链接: ","source":"来源: XBX Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'XBX Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-04-27 22:23:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">XBX Blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://greenhand-xj.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/04/11/hello-world/" class="article-date">
-  <time datetime="2022-04-11T15:29:39.193Z" itemprop="datePublished">2022-04-11</time>
-</a>
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/./img/home-banner.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">XBX Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">XBX Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/greenhand-xj" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2275817182@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://gitee.com/wode_shijie" target="_blank" title="Gitee"><i class="fa-brands fa-git-square"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/04/27/js%E4%B8%93%E9%A1%B9/" title="js专项">     <img class="post_bg" src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="js专项"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/27/js%E4%B8%93%E9%A1%B9/" title="js专项">js专项</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-27T14:09:40.000Z" title="发表于 2022-04-27 22:09:40">2022-04-27</time></span></div><div class="content">for..in &amp; for..of
+ for in 适用于对象
+ for of 适用于具有 iterator 接口的数据结构 map set array NodeList arguments
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+filter 去重123var arr = [1, 2, 3, 4, 1, 3, 12, 3, 4]const arr2 = arr.filter((item, index, self) =&gt; self.indexOf(item) === index)console.log(arr2)
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+parseInt 的使用1parseInt(&#x27;11001&#x27;, 2) //第二个参数是进制 2-32
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+字符串=&gt;AIISC (数组形式)Array.prototype.map | filter | slice.call(字符串) 都可以使字符串调用数组方法
+123var str = &#x27;123456  &#x27;var arr = Array.prototype.map.call(str, (item) =&gt; item.charCodeAt(0))cons ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/04/24/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8wangeditor%E5%AF%8C%E6%96%87%E6%9C%AC/" title="简单使用wangeditor富文本">     <img class="post_bg" src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="简单使用wangeditor富文本"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/24/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8wangeditor%E5%AF%8C%E6%96%87%E6%9C%AC/" title="简单使用wangeditor富文本">简单使用wangeditor富文本</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-24T14:51:27.000Z" title="发表于 2022-04-24 22:51:27">2022-04-24</time></span></div><div class="content">下载依赖1yarn add wangeditor --save
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+简单使用
+引入
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://greenhand-xj.github.io/2022/04/11/hello-world/" data-id="cl1vwojgo00001sv9gksm8nu9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+1import E from &#x27;wangeditor&#x27;
+
+
+创建 dom 元素
+
+1&lt;div id=&quot;editor&quot;&gt;&lt;/div&gt;
+
+
+实例化要在 dom 元素全部更新完以后渲染在 vue 中
+
+1234567891011121314nextTick(() =&gt; &#123;  if (document.getElementById(&#x27;editor&#x27;)) &#123;    const editor = new E(&#x27;#editor&#x27;)    editor.config.placeholder = item.placeholder!    editor.create()    //初始化内容    editor.txt.html(item.value)    //实时监听富文本中的内容，做到数据的响应式    editor.config.onchange = (newHtml: string)  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/04/23/mobx-v6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="mobx-v6的基本使用(React版)">     <img class="post_bg" src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mobx-v6的基本使用(React版)"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/23/mobx-v6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="mobx-v6的基本使用(React版)">mobx-v6的基本使用(React版)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-23T15:02:26.000Z" title="发表于 2022-04-23 23:02:26">2022-04-23</time></span></div><div class="content">下载依赖1yarn add mobx mobx-react-lite
+
+在 store 文件夹新建 modules 文件夹(放小仓库)，index.js 文件(合并小仓库，大仓库)
+小仓库的写法1234567891011121314151617181920import &#123; makeAutoObservable, computed &#125; from &#x27;mobx&#x27;class CounterStore &#123;  count = 0  list = [1, 2, 3, 4, 5]  constructor() &#123;    makeAutoObservable(this)  &#125;  //类似于getter 计算属性  get filterList() &#123;    return this.list.filter((item) =&gt; item &gt; 2)  &#125;  addCount = () =&gt; &#123;    this.count++  &#125;  addList = () =&gt; this.l ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/04/23/react-router-dom-v6/" title="react-router-dom-v6">     <img class="post_bg" src="/./img/default-top.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="react-router-dom-v6"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/23/react-router-dom-v6/" title="react-router-dom-v6">react-router-dom-v6</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-23T02:53:23.000Z" title="发表于 2022-04-23 10:53:23">2022-04-23</time></span></div><div class="content">React Router 6 快速上手1.概述
+React Router 以三个不同的包发布到 npm 上，它们分别为：
+
+react-router: 路由的核心库，提供了很多的：组件、钩子。
+react-router-dom: 包含 react-router 所有内容，并添加一些专门用于 DOM 的组件，例如 &lt;BrowserRouter&gt;等 。
+react-router-native: 包括 react-router 所有内容，并添加一些专门用于 ReactNative 的 API，例如:&lt;NativeRouter&gt;等。
+
+
+与 React Router 5.x 版本相比，改变了什么？
+
+内置组件的变化：移除&lt;Switch/&gt; ，新增 &lt;Routes/&gt;等。
+
+语法的变化：component=&#123;About&#125; 变为 element=&#123;&lt;About/&gt;&#125;等。
+
+新增多个 hook：useParams、useNavigate、useMatch等。
+
+官方明确推荐函数式组件了！！！
+……
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/04/20/redux%E5%9C%A8react%E4%B8%AD%E4%BD%BF%E7%94%A8/" title="redux在react中使用">     <img class="post_bg" src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redux在react中使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/20/redux%E5%9C%A8react%E4%B8%AD%E4%BD%BF%E7%94%A8/" title="redux在react中使用">redux在react中使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-20T14:57:03.000Z" title="发表于 2022-04-20 22:57:03">2022-04-20</time></span></div><div class="content">1.求和案例_redux 精简版    (1).去除Count组件自身的状态
+    (2).src下建立:
+                    -redux
+                        -store.js
+                        -count_reducer.js
+
+    (3).store.js：
+                1).引入redux中的createStore函数，创建一个store
+                2).createStore调用时要传入一个为其服务的reducer
+                3).记得暴露store对象
+
+    (4).count_reducer.js：
+                1).reducer的本质是一个函数，接收：preState,action，返回加工后的状态
+                2).reducer有两个作用：初始化状态，加工状态
+                3).reducer被第一次调用时，是store自动触发的，
+          ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/04/20/ep%E7%BB%84%E4%BB%B6%E9%87%8C%E9%9D%A2%E7%9A%84select%E7%BB%84%E4%BB%B6%E7%9A%84%E8%BF%87%E6%BB%A4/" title="ep组件里面的select组件的过滤">     <img class="post_bg" src="/./img/archive.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ep组件里面的select组件的过滤"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/20/ep%E7%BB%84%E4%BB%B6%E9%87%8C%E9%9D%A2%E7%9A%84select%E7%BB%84%E4%BB%B6%E7%9A%84%E8%BF%87%E6%BB%A4/" title="ep组件里面的select组件的过滤">ep组件里面的select组件的过滤</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-20T14:50:48.000Z" title="发表于 2022-04-20 22:50:48">2022-04-20</time></span></div><div class="content">123456789101112131415&lt;el-select  @change=&quot;changeSelct&quot;  v-model=&quot;selectValue&quot;  filterable  placeholder=&quot;请搜索城市&quot;  size=&quot;small&quot;  :filter-method=&quot;filterMethod&quot;&gt;  &lt;el-option    v-for=&quot;item in options&quot;    :key=&quot;item.id&quot;    :label=&quot;item.name&quot;    :value=&quot;item.id&quot;  /&gt;&lt;/el-select&gt;
+
+只要加上 filterable 就可以对数据进行过滤如果要自定义过滤方法就要加上 filter-method 这个属性形参 val 是 el-option 绑定的 value 值
+12345678910111213141516171819 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/04/19/scrollIntoView%E7%9A%84%E4%BD%BF%E7%94%A8/" title="scrollIntoView的使用">     <img class="post_bg" src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="scrollIntoView的使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/19/scrollIntoView%E7%9A%84%E4%BD%BF%E7%94%A8/" title="scrollIntoView的使用">scrollIntoView的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-19T15:00:13.000Z" title="发表于 2022-04-19 23:00:13">2022-04-19</time></span></div><div class="content">mdn 链接https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
+使用场景
+上图实现点击字母跳到下面的指定字母位置先要给每个上面的字母绑定事件
+123456789101112&lt;!-- 字母区域 --&gt;&lt;div class=&quot;city&quot;&gt;  &lt;!-- &lt;div v-for=&quot;(vale, key) in cities&quot;&gt;&#123;&#123; key &#125;&#125;&lt;/div&gt; --&gt;  &lt;div    class=&quot;city-item&quot;    @click=&quot;clickChat(item)&quot;    v-for=&quot;(item, index) in Object.keys(cities)&quot;    :key=&quot;item&quot;  &gt;    &#123;&#123; item &#125;&#125;  &lt ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/04/18/vite2%E5%88%9B%E5%BB%BAvue2%E9%A1%B9%E7%9B%AE/" title="vite2创建vue2项目">     <img class="post_bg" src="/./img/default-top.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vite2创建vue2项目"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/18/vite2%E5%88%9B%E5%BB%BAvue2%E9%A1%B9%E7%9B%AE/" title="vite2创建vue2项目">vite2创建vue2项目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-18T14:46:24.000Z" title="发表于 2022-04-18 22:46:24">2022-04-18</time></span></div><div class="content">创建 vanilla 项目因为 vanilla 是纯 js 项目
+1pnpm create vite
+
+记得选择 vanilla
+安装插件并安装必要依赖123pnpm install vite-plugin-vue2 -Dpnpm i vue@2pnpm i vue-template-compiler -D
+
+配置文件在 vite.config.js 里面配置
+123456import &#123; defineConfig &#125; from &#x27;vite&#x27;import &#123; createVuePlugin &#125; from &#x27;vite-plugin-vue2&#x27;export default defineConfig(&#123;  plugins: [createVuePlugin()],&#125;)
+
+创建 App.vue123456789&lt;template&gt;  &lt;div&gt;vue2&lt;/div&gt;&lt;/template&gt;&lt;script&gt;  export default & ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/04/16/tsx%E5%B0%81%E8%A3%85EP%E6%97%A0%E9%99%90%E8%8F%9C%E5%8D%95%E7%BB%84%E4%BB%B6/" title="tsx封装EP无限菜单组件">     <img class="post_bg" src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tsx封装EP无限菜单组件"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/16/tsx%E5%B0%81%E8%A3%85EP%E6%97%A0%E9%99%90%E8%8F%9C%E5%8D%95%E7%BB%84%E4%BB%B6/" title="tsx封装EP无限菜单组件">tsx封装EP无限菜单组件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-16T15:18:45.000Z" title="发表于 2022-04-16 23:18:45">2022-04-16</time></span></div><div class="content">先下载依赖—vite 项目1yarn add -D @vitejs/plugin-vue-jsx
+
+接着在 vite.config.ts 中引入123456789101112131415161718import &#123; defineConfig &#125; from &#x27;vite&#x27;import vue from &#x27;@vitejs/plugin-vue&#x27;import AutoImport from &#x27;unplugin-auto-import/vite&#x27;import vueJsx from &#x27;@vitejs/plugin-vue-jsx&#x27;export default defineConfig(&#123;  plugins: [    vue(),    vueJsx(),    AutoImport(&#123;      imports: [&#x27;vue&#x27;, &#x27;vue-router&#x27;],      //为true时在项目根目录自动创建      dts: &#x27 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/04/16/React-router-dom-V5%E7%AC%94%E8%AE%B0/" title="React-router-dom-V5笔记">     <img class="post_bg" src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="React-router-dom-V5笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/16/React-router-dom-V5%E7%AC%94%E8%AE%B0/" title="React-router-dom-V5笔记">React-router-dom-V5笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-16T03:41:54.000Z" title="发表于 2022-04-16 11:41:54">2022-04-16</time></span></div><div class="content">三、路由的基本使用        1.明确好界面中的导航区、展示区
+        2.导航区的a标签改为Link标签
+                    &lt;Link to=&quot;/xxxxx&quot;&gt;Demo&lt;/Link&gt;
+        3.展示区写Route标签进行路径的匹配
+                    &lt;Route path=&#39;/xxxx&#39; component=&#123;Demo&#125;/&gt;
+        4.&lt;App&gt;的最外侧包裹了一个&lt;BrowserRouter&gt;或&lt;HashRouter&gt;
+
+四、路由组件与一般组件        1.写法不同：
+                    一般组件：&lt;Demo/&gt;
+                    路由组件：&lt;Route path=&quot;/demo&quot; component=&#123;Demo&#125;/&gt;
+        2.存放位置不同：
+           ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xu Jie</div><div class="author-info__description">欢迎来到我的博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/greenhand-xj"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/greenhand-xj" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2275817182@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://gitee.com/wode_shijie" target="_blank" title="Gitee"><i class="fa-brands fa-git-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/27/js%E4%B8%93%E9%A1%B9/" title="js专项"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="js专项"/></a><div class="content"><a class="title" href="/2022/04/27/js%E4%B8%93%E9%A1%B9/" title="js专项">js专项</a><time datetime="2022-04-27T14:09:40.000Z" title="发表于 2022-04-27 22:09:40">2022-04-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8wangeditor%E5%AF%8C%E6%96%87%E6%9C%AC/" title="简单使用wangeditor富文本"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="简单使用wangeditor富文本"/></a><div class="content"><a class="title" href="/2022/04/24/%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8wangeditor%E5%AF%8C%E6%96%87%E6%9C%AC/" title="简单使用wangeditor富文本">简单使用wangeditor富文本</a><time datetime="2022-04-24T14:51:27.000Z" title="发表于 2022-04-24 22:51:27">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/23/mobx-v6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="mobx-v6的基本使用(React版)"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mobx-v6的基本使用(React版)"/></a><div class="content"><a class="title" href="/2022/04/23/mobx-v6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="mobx-v6的基本使用(React版)">mobx-v6的基本使用(React版)</a><time datetime="2022-04-23T15:02:26.000Z" title="发表于 2022-04-23 23:02:26">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/23/react-router-dom-v6/" title="react-router-dom-v6"><img src="/./img/default-top.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="react-router-dom-v6"/></a><div class="content"><a class="title" href="/2022/04/23/react-router-dom-v6/" title="react-router-dom-v6">react-router-dom-v6</a><time datetime="2022-04-23T02:53:23.000Z" title="发表于 2022-04-23 10:53:23">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/20/redux%E5%9C%A8react%E4%B8%AD%E4%BD%BF%E7%94%A8/" title="redux在react中使用"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redux在react中使用"/></a><div class="content"><a class="title" href="/2022/04/20/redux%E5%9C%A8react%E4%B8%AD%E4%BD%BF%E7%94%A8/" title="redux在react中使用">redux在react中使用</a><time datetime="2022-04-20T14:57:03.000Z" title="发表于 2022-04-20 22:57:03">2022-04-20</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">14</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">6.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-04-27T14:23:30.011Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Xu Jie</div><div class="footer_custom_text">很高兴认识你🤣</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        var from = '出自 ' + data.from
+        var sub = "你今天真好看".length == 0 ? new Array() : "你今天真好看".split(',')
+        var both = sub.unshift(data.hitokoto, from)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (true) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
   
-</article>
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
 
+  typeof typed === 'object' && typed.destroy()
 
-  
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
 
+})
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
 
-  
-    
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
-    </div>
-  </div>
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/04/11/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 Xu Jie<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+  typeof preloader === 'object' && preloader.endLoading()
+})
 
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
