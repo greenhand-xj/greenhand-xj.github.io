@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>ubantu安装node并快速部署静态资源</title>
+      <link href="/archives/9820893f.html"/>
+      <url>/archives/9820893f.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="使用-apt-安装-node"><a href="#使用-apt-安装-node" class="headerlink" title="使用 apt 安装 node"></a>使用 apt 安装 node</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install nodejs -y</span><br></pre></td></tr></table></figure><p>但这种方式安装的 node 版本很低</p><h3 id="更换-nodejs-的源"><a href="#更换-nodejs-的源" class="headerlink" title="更换 nodejs 的源"></a>更换 nodejs 的源</h3><p>具体的地址 <a href="https://github.com/nodesource/distributions">https://github.com/nodesource/distributions</a><br>更换源命令</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -</span><br></pre></td></tr></table></figure><p>接下来在执行</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install nodejs -y</span><br></pre></td></tr></table></figure><h3 id="npm-全局安装-serve-包"><a href="#npm-全局安装-serve-包" class="headerlink" title="npm 全局安装 serve 包"></a>npm 全局安装 serve 包</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g serve</span><br></pre></td></tr></table></figure><p>在任意一个目录下 运行 serve 命令，那么那个目录就是服务器的根目录</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>引入ant-design-vueCDN方式的问题</title>
+      <link href="/archives/adfd0c7d.html"/>
+      <url>/archives/adfd0c7d.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="引入-cdn-方式会导致单标签失效"><a href="#引入-cdn-方式会导致单标签失效" class="headerlink" title="引入 cdn 方式会导致单标签失效"></a>引入 cdn 方式会导致单标签失效</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a-icon</span> <span class="attr">type</span>=<span class="string">&quot;user&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>wode<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure><p>上面这样的方式会导致下面这样</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a-icon</span> <span class="attr">type</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>wode<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a-icon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>原因应该是组件的标签在非脚手架的项目中不生效</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>简单封装uni.request方法</title>
       <link href="/archives/9f480b3.html"/>
       <url>/archives/9f480b3.html</url>
