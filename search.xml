@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>vuex中mapSate的多种用法</title>
+      <link href="/archives/78b1414a.html"/>
+      <url>/archives/78b1414a.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="mapState-的两种写法"><a href="#mapState-的两种写法" class="headerlink" title="mapState 的两种写法"></a>mapState 的两种写法</h3><ol><li>数组用法</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">computed</span>:&#123;</span><br><span class="line">  ...<span class="title function_">mapState</span>(<span class="string">&#x27;如果开启了命名空间&#x27;</span>,[<span class="string">&#x27;example&#x27;</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>对象用法</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">computed</span>:&#123;</span><br><span class="line">  ...<span class="title function_">mapState</span>(<span class="string">&#x27;如果开启了命名空间&#x27;</span>,&#123;</span><br><span class="line">    <span class="attr">increase</span>:<span class="string">&#x27;add&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其实对象的 value 可以是一个函数</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">computed</span>:&#123;</span><br><span class="line">  ...<span class="title function_">mapState</span>(<span class="string">&#x27;如果开启了命名空间&#x27;</span>,&#123;</span><br><span class="line">    <span class="attr">increase</span>:<span class="function">(<span class="params">state</span>) =&gt;</span> state.<span class="property">add</span> || <span class="literal">null</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>用函数的写法的话一般用来进一步处理 state 里的数据，类似于 [getters]</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ubantu安装node并快速部署静态资源</title>
       <link href="/archives/9820893f.html"/>
       <url>/archives/9820893f.html</url>
