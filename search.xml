@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Linux安装Docker</title>
+      <link href="/archives/96e9ca9a.html"/>
+      <url>/archives/96e9ca9a.html</url>
+      
+        <content type="html"><![CDATA[<ol><li>安装官方给的 shell 脚本</li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com -o get-docker.sh</span><br></pre></td></tr></table></figure><ol start="2"><li>执行 shell 文件<br>这里要等上几分钟</li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh get-docker.sh</span><br></pre></td></tr></table></figure><ol start="3"><li>查看版本</li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vuex中mapSate的多种用法</title>
       <link href="/archives/78b1414a.html"/>
       <url>/archives/78b1414a.html</url>
