@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>vue3中动态渲染menu | XBX-Blog</title><meta name="keywords" content="博客 Blog"><meta name="author" content="Xu Jie"><meta name="copyright" content="Xu Jie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="编写生成菜单数据格式的方法菜单数据格式123456789101112131415161718192021222324252627282930313233343536[  &amp;#123;    &quot;title&quot;: &quot;个人中心&quot;,    &quot;path&quot;: &quot;&quot;  &amp;#125;,  &amp;#123;    &quot;title&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3中动态渲染menu">
+<meta property="og:url" content="https://greenhand-xj.github.io/archives/5e7974ee.html">
+<meta property="og:site_name" content="XBX-Blog">
+<meta property="og:description" content="编写生成菜单数据格式的方法菜单数据格式123456789101112131415161718192021222324252627282930313233343536[  &amp;#123;    &quot;title&quot;: &quot;个人中心&quot;,    &quot;path&quot;: &quot;&quot;  &amp;#125;,  &amp;#123;    &quot;title&amp;qu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://greenhand-xj.github.io/img/default-top.png">
+<meta property="article:published_time" content="2022-05-28T14:00:59.000Z">
+<meta property="article:modified_time" content="2022-05-28T14:25:08.945Z">
+<meta property="article:author" content="Xu Jie">
+<meta property="article:tag" content="博客 Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://greenhand-xj.github.io/img/default-top.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://greenhand-xj.github.io/archives/5e7974ee"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-a1oo8yuR8z"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":0},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Xu Jie","link":"链接: ","source":"来源: XBX-Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue3中动态渲染menu',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-28 22:25:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/default-top.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">XBX-Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue3中动态渲染menu</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-28T14:00:59.000Z" title="发表于 2022-05-28 22:00:59">2022-05-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-28T14:25:08.945Z" title="更新于 2022-05-28 22:25:08">2022-05-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vue3中动态渲染menu"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="编写生成菜单数据格式的方法"><a href="#编写生成菜单数据格式的方法" class="headerlink" title="编写生成菜单数据格式的方法"></a>编写生成菜单数据格式的方法</h3><h5 id="菜单数据格式"><a href="#菜单数据格式" class="headerlink" title="菜单数据格式"></a>菜单数据格式</h5><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;个人中心&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;用户&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;children&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;员工管理&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;角色列表&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;权限列表&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;文章&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;children&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;文章排名&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;创建文章&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="处理路由表的重复性和生成菜单数据结构"><a href="#处理路由表的重复性和生成菜单数据结构" class="headerlink" title="处理路由表的重复性和生成菜单数据结构"></a>处理路由表的重复性和生成菜单数据结构</h5><p>只要是有 meta 标签的且里面有 title 和 menu 两个属性就是 menu 菜单项，没有的话就是普通路由，像 login 路由<br>有 children 属性且长度大于 0 就是 父级菜单项<br>没有 children 或 长度为 0 就是一级菜单项</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&#x27;path&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 所有的子集路由</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; routes 所有的路由</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getChildrenRoutes</span> = (<span class="params">routes</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> result = []</span><br><span class="line">  routes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">route</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (route.<span class="property">children</span> &amp;&amp; route.<span class="property">children</span>.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      result.<span class="title function_">push</span>(...route.<span class="property">children</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 处理脱离层级的路由</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">filterRoutes</span> = (<span class="params">routes</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 所有的子集路由</span></span><br><span class="line">  <span class="keyword">const</span> childrenRoutes = <span class="title function_">getChildrenRoutes</span>(routes)</span><br><span class="line">  <span class="comment">// 根据子集路由进行查重操作</span></span><br><span class="line">  <span class="keyword">return</span> routes.<span class="title function_">filter</span>(<span class="function">(<span class="params">route</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 根据route在children中进行查重，把所有的重复路由记录删除,find找到就一个对象，没找到就是null</span></span><br><span class="line">    <span class="keyword">return</span> !childrenRoutes.<span class="title function_">find</span>(<span class="function">(<span class="params">childrenRoute</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> childrenRoute.<span class="property">path</span> === route.<span class="property">path</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isNull</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!data) <span class="keyword">return</span> <span class="literal">true</span> <span class="comment">// 判断没有</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data) === <span class="string">&#x27;&#123;&#125;&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span> <span class="comment">// 判断route.meta</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data) === <span class="string">&#x27;[]&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span> <span class="comment">// 判断route.children</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据routes 数据 ，返回对应的menu规则数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; routes 已经处理好的路由</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">generateMenus</span>(<span class="params">routes, basePath = <span class="string">&#x27;&#x27;</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> result = []</span><br><span class="line">  <span class="comment">// 遍历路由表</span></span><br><span class="line">  routes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 不存在 children &amp;&amp; 不存在 meta 直接 return</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">isNull</span>(item.<span class="property">meta</span>) &amp;&amp; <span class="title function_">isNull</span>(item.<span class="property">children</span>)) <span class="keyword">return</span></span><br><span class="line">    <span class="comment">// 存在 children 不存在 meta，进入迭代</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">isNull</span>(item.<span class="property">meta</span>) &amp;&amp; !<span class="title function_">isNull</span>(item.<span class="property">children</span>)) &#123;</span><br><span class="line">      result.<span class="title function_">push</span>(...<span class="title function_">generateMenus</span>(item.<span class="property">children</span>))</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 合并 path 作为跳转路径</span></span><br><span class="line">    <span class="keyword">const</span> routePath = path.<span class="title function_">resolve</span>(basePath, item.<span class="property">path</span>)</span><br><span class="line">    <span class="comment">// 路由分离之后，存在同名父路由的情况，需要单独处理</span></span><br><span class="line">    <span class="keyword">let</span> route = result.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item.<span class="property">path</span> === routePath)</span><br><span class="line">    <span class="keyword">if</span> (!route) &#123;</span><br><span class="line">      route = &#123;</span><br><span class="line">        ...item,</span><br><span class="line">        <span class="attr">path</span>: routePath,</span><br><span class="line">        <span class="attr">children</span>: [],</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// icon 与 title 必须全部存在</span></span><br><span class="line">      <span class="keyword">if</span> (route.<span class="property">meta</span>.<span class="property">icon</span> &amp;&amp; route.<span class="property">meta</span>.<span class="property">title</span>) &#123;</span><br><span class="line">        <span class="comment">// meta 存在生成 route 对象，放入 arr</span></span><br><span class="line">        result.<span class="title function_">push</span>(route)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存在 children 进入迭代到children</span></span><br><span class="line">    <span class="keyword">if</span> (item.<span class="property">children</span>) &#123;</span><br><span class="line">      route.<span class="property">children</span>.<span class="title function_">push</span>(...<span class="title function_">generateMenus</span>(item.<span class="property">children</span>, route.<span class="property">path</span>))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="注意-import-path-from-‘path’-这里可能会报错"><a href="#注意-import-path-from-‘path’-这里可能会报错" class="headerlink" title="注意 import path from ‘path’ 这里可能会报错"></a>注意 import path from ‘path’ 这里可能会报错</h5><p>解决办法如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add path-browserify</span><br></pre></td></tr></table></figure>
+
+<p>在 vue.config.js 中新增</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">configureWebpack</span>: &#123;</span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="attr">fallback</span>: &#123; <span class="attr">path</span>: <span class="built_in">require</span>.<span class="title function_">resolve</span>(<span class="string">&#x27;path-browserify&#x27;</span>) &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="在-Sidebar-中使用"><a href="#在-Sidebar-中使用" class="headerlink" title="在 Sidebar 中使用"></a>在 Sidebar 中使用</h3><p>router.getRoutes()这个 api 会返回所有的路由（包括子路由当做一级路由），所以要进行路由去重</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动态计算菜单</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">useRouter</span>()</span><br><span class="line"><span class="keyword">const</span> dynamicRoutes = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> completeRoutes = <span class="title function_">filterRoutes</span>(router.<span class="title function_">getRoutes</span>()) <span class="comment">//路由去重</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">generateMenus</span>(completeRoutes) <span class="comment">//生成menu数据结构</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>结构如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>,</span><br><span class="line">   <span class="attr">redirect</span>: <span class="string">&#x27;/user/manage&#x27;</span>,</span><br><span class="line">   <span class="attr">component</span>: <span class="title class_">Layout</span>,</span><br><span class="line">   <span class="attr">meta</span>: &#123;</span><br><span class="line">     <span class="attr">title</span>: <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">     <span class="attr">icon</span>: <span class="string">&#x27;personnel&#x27;</span>,</span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="attr">children</span>: [</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="attr">path</span>: <span class="string">&#x27;/user/manage&#x27;</span>,</span><br><span class="line">       <span class="attr">name</span>: <span class="string">&#x27;userManage&#x27;</span>,</span><br><span class="line">       <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;@/views/user-manage/index.vue&#x27;</span>),</span><br><span class="line">       <span class="attr">meta</span>: &#123;</span><br><span class="line">         <span class="attr">title</span>: <span class="string">&#x27;userManage&#x27;</span>,</span><br><span class="line">         <span class="attr">icon</span>: <span class="string">&#x27;personnel-manage&#x27;</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">     &#125;,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="attr">path</span>: <span class="string">&#x27;/user/role&#x27;</span>,</span><br><span class="line">       <span class="attr">name</span>: <span class="string">&#x27;userRole&#x27;</span>,</span><br><span class="line">       <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;@/views/role-list/index.vue&#x27;</span>),</span><br><span class="line">       <span class="attr">meta</span>: &#123;</span><br><span class="line">         <span class="attr">title</span>: <span class="string">&#x27;roleList&#x27;</span>,</span><br><span class="line">         <span class="attr">icon</span>: <span class="string">&#x27;role&#x27;</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">     &#125;,</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="attr">path</span>: <span class="string">&#x27;/user/permission&#x27;</span>,</span><br><span class="line">       <span class="attr">name</span>: <span class="string">&#x27;userPermission&#x27;</span>,</span><br><span class="line">       <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;@/views/permission-list/index.vue&#x27;</span>),</span><br><span class="line">       <span class="attr">meta</span>: &#123;</span><br><span class="line">         <span class="attr">title</span>: <span class="string">&#x27;permissionList&#x27;</span>,</span><br><span class="line">         <span class="attr">icon</span>: <span class="string">&#x27;permission&#x27;</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">     &#125;,</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="动态渲染"><a href="#动态渲染" class="headerlink" title="动态渲染"></a>动态渲染</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-menu</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:unique-opened</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:background-color</span>=<span class="string">&quot;menuBg&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:text-color</span>=<span class="string">&quot;menuText&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:active-text-color</span>=<span class="string">&quot;menuActiveText&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">router</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:default-active</span>=<span class="string">&quot;activeMenu&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">sidebar-item</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">&quot;item in dynamicRoutes&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">&quot;item.path&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:route</span>=<span class="string">&quot;item&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">sidebar-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="sidebar-item-组件"><a href="#sidebar-item-组件" class="headerlink" title="sidebar-item 组件"></a>sidebar-item 组件</h5><p>这里注意的是组件也可以自己调用自己，进行循环渲染</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-sub-menu v-if=&quot;route.children.length &gt; 0&quot; :index=&quot;route.path&quot;&gt;</span><br><span class="line">    &lt;template #title&gt;</span><br><span class="line">      &lt;menu-item :title=&quot;route.meta.title&quot; :icon=&quot;route.meta.icon&quot;&gt;&lt;/menu-item&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;!-- 循环渲染children --&gt;</span><br><span class="line">    &lt;sidebar-item</span><br><span class="line">      v-for=&quot;item in route.children&quot;</span><br><span class="line">      :key=&quot;item.path&quot;</span><br><span class="line">      :route=&quot;item&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">  &lt;/el-sub-menu&gt;</span><br><span class="line">  &lt;el-menu-item v-else :index=&quot;route.path&quot;&gt;</span><br><span class="line">    &lt;menu-item :title=&quot;route.meta.title&quot; :icon=&quot;route.meta.icon&quot;&gt;&lt;/menu-item&gt;</span><br><span class="line">  &lt;/el-menu-item&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; defineProps &#125; from &#x27;vue&#x27;</span><br><span class="line">import MenuItem from &#x27;./MenuItem&#x27;</span><br><span class="line">defineProps(&#123;</span><br><span class="line">  route: &#123;</span><br><span class="line">    type: Object,</span><br><span class="line">    required: true,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="menu-item-组件"><a href="#menu-item-组件" class="headerlink" title="menu-item 组件"></a>menu-item 组件</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;!-- element icon --&gt;</span><br><span class="line">  &lt;i v-if=&quot;icon.includes(&#x27;el-icon&#x27;)&quot; class=&quot;sub-el-icon&quot; :class=&quot;icon&quot;&gt;&lt;/i&gt;</span><br><span class="line">  &lt;!-- svg --&gt;</span><br><span class="line">  &lt;svg-icon v-else :icon=&quot;icon&quot;&gt;&lt;/svg-icon&gt;</span><br><span class="line">  &lt;!-- 文本 --&gt;</span><br><span class="line">  &lt;span&gt;&#123;&#123; title &#125;&#125;&lt;/span&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; defineProps &#125; from &#x27;vue&#x27;</span><br><span class="line">defineProps(&#123;</span><br><span class="line">  title: &#123;</span><br><span class="line">    title: String,</span><br><span class="line">    required: true,</span><br><span class="line">  &#125;,</span><br><span class="line">  icon: &#123;</span><br><span class="line">    title: String,</span><br><span class="line">    required: true,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">Xu Jie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://greenhand-xj.github.io/archives/5e7974ee.html">https://greenhand-xj.github.io/archives/5e7974ee.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://greenhand-xj.github.io" target="_blank">XBX-Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/./img/default-top.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/archives/77bf3dd.html"><img class="next-cover" src="/./img/default-top.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">scss样式变量与js共享</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NjE3Ni8zMjYzOQ=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xu Jie</div><div class="author-info__description">欢迎来到我的博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/greenhand-xj"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/greenhand-xj" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2275817182@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://gitee.com/wode_shijie" rel="external nofollow noreferrer" target="_blank" title="Gitee"><i class="fa-brands fa-git-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E7%94%9F%E6%88%90%E8%8F%9C%E5%8D%95%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">编写生成菜单数据格式的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8F%9C%E5%8D%95%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.0.1.</span> <span class="toc-text">菜单数据格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E8%B7%AF%E7%94%B1%E8%A1%A8%E7%9A%84%E9%87%8D%E5%A4%8D%E6%80%A7%E5%92%8C%E7%94%9F%E6%88%90%E8%8F%9C%E5%8D%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.0.2.</span> <span class="toc-text">处理路由表的重复性和生成菜单数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F-import-path-from-%E2%80%98path%E2%80%99-%E8%BF%99%E9%87%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%8A%A5%E9%94%99"><span class="toc-number">1.0.3.</span> <span class="toc-text">注意 import path from ‘path’ 这里可能会报错</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Sidebar-%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">在 Sidebar 中使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93"><span class="toc-number">3.</span> <span class="toc-text">动态渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#sidebar-item-%E7%BB%84%E4%BB%B6"><span class="toc-number">3.0.1.</span> <span class="toc-text">sidebar-item 组件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#menu-item-%E7%BB%84%E4%BB%B6"><span class="toc-number">3.0.2.</span> <span class="toc-text">menu-item 组件</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/5e7974ee.html" title="vue3中动态渲染menu"><img src="/./img/default-top.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue3中动态渲染menu"/></a><div class="content"><a class="title" href="/archives/5e7974ee.html" title="vue3中动态渲染menu">vue3中动态渲染menu</a><time datetime="2022-05-28T14:00:59.000Z" title="发表于 2022-05-28 22:00:59">2022-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/77bf3dd.html" title="scss样式变量与js共享"><img src="/./img/default-top.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="scss样式变量与js共享"/></a><div class="content"><a class="title" href="/archives/77bf3dd.html" title="scss样式变量与js共享">scss样式变量与js共享</a><time datetime="2022-05-27T15:21:25.000Z" title="发表于 2022-05-27 23:21:25">2022-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/af0c5c93.html" title="webpack中svg图标组件封装"><img src="/./img/default-top.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="webpack中svg图标组件封装"/></a><div class="content"><a class="title" href="/archives/af0c5c93.html" title="webpack中svg图标组件封装">webpack中svg图标组件封装</a><time datetime="2022-05-24T14:52:36.000Z" title="发表于 2022-05-24 22:52:36">2022-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/c122a5fa.html" title="React与immerjs-用可变的方式实现不可变的范式"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="React与immerjs-用可变的方式实现不可变的范式"/></a><div class="content"><a class="title" href="/archives/c122a5fa.html" title="React与immerjs-用可变的方式实现不可变的范式">React与immerjs-用可变的方式实现不可变的范式</a><time datetime="2022-05-22T12:48:30.000Z" title="发表于 2022-05-22 20:48:30">2022-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/854a37ee.html" title="rgb转16进制 and 16进制转rgb"><img src="/./img/home-banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="rgb转16进制 and 16进制转rgb"/></a><div class="content"><a class="title" href="/archives/854a37ee.html" title="rgb转16进制 and 16进制转rgb">rgb转16进制 and 16进制转rgb</a><time datetime="2022-05-21T15:02:36.000Z" title="发表于 2022-05-21 23:02:36">2022-05-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Xu Jie</div><div class="footer_custom_text">很高兴认识你🤣</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (true) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
