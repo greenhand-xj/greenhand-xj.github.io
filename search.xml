@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>oauth2.0授权登录</title>
+      <link href="/archives/a54285c6.html"/>
+      <url>/archives/a54285c6.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="什么是-oauth2-0"><a href="#什么是-oauth2-0" class="headerlink" title="什么是 oauth2.0"></a>什么是 oauth2.0</h3><p>OAuth 不是一个 API 或者服务，而是一个验证授权(Authorization)的开放标准，所有人都有基于这个标准实现自己的 OAuth。<br>更具体来说，OAuth 是一个标准，app 可以用来实现 secure delegated access. OAuth 基于 HTTPS，以及 APIs，Service 应用使用 access token 来进行身份验证。<br>OAuth 主要有 OAuth 1.0a 和 OAuth 2.0 两个版本，并且二者完全不同，且不兼容。OAuth2.0 是目前广泛使用的版本，我们多数谈论 OAuth 时，为 OAuth2.0。<br>更多的话我推荐 <strong>阮一峰</strong> 写的文章 <a href="https://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html">oauth2.0</a></p><h3 id="实现-oauth2-0-授权登录"><a href="#实现-oauth2-0-授权登录" class="headerlink" title="实现 oauth2.0 授权登录"></a>实现 oauth2.0 授权登录</h3><p>其实 oauth 登录方式有四种，常用就是授权登录，我这里用 gitee 第三方登录举例</p><div>  <div>    <img src="/img/oauth基本流程"/>  </div></div>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue3和vue2的对象响应式原理</title>
       <link href="/archives/af0be50f.html"/>
       <url>/archives/af0be50f.html</url>

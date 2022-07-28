@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://greenhand-xj.github.io/archives/a54285c6.html</loc>
+    
+    <lastmod>2022-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://greenhand-xj.github.io/archives/af0be50f.html</loc>
     
     <lastmod>2022-07-11</lastmod>
@@ -400,7 +409,7 @@
 
   <url>
     <loc>https://greenhand-xj.github.io/</loc>
-    <lastmod>2022-07-11</lastmod>
+    <lastmod>2022-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
