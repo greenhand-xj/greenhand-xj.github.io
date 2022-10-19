@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>vant的stepper组件change事件</title>
+      <link href="/archives/6a9845ee.html"/>
+      <url>/archives/6a9845ee.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="vant的stepper组件"><a href="#vant的stepper组件" class="headerlink" title="vant的stepper组件"></a>vant的stepper组件</h3><p>这里只要v-model绑定的值发生了变化就会触发change事件</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;van-stepper</span><br><span class="line">  v-model.<span class="property">number</span>=<span class="string">&quot;item.cartNum&quot;</span></span><br><span class="line">  integer</span><br><span class="line">  @change=<span class="string">&quot;(val) =&gt; onCartNumChange(val, item)&quot;</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><img src="/img/stepper.jpg"/>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue-cli的webpack配置</title>
       <link href="/archives/bb688680.html"/>
       <url>/archives/bb688680.html</url>
